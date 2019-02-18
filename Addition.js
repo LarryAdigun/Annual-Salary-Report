@@ -12,6 +12,18 @@ for (var i = 0; i < departmentId.length; i++) {
         console.log("Employee:", employeeName[i][j], "Id number is:", employeeId[i][j])
     }
     
-    
+
 }
 
+function NestedArraySummation(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (typeof arr[i] == "number")
+            sum = sum + arr[i];
+        else if (arr[i] instanceof Array)
+            sum = sum + NestedArraySummation(arr[i]);
+    }
+    return sum;
+}
+
+console.log(NestedArraySummation(salaries))
